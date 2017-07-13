@@ -1,0 +1,110 @@
+<view>
+  <view class="order-detail-section orderDetail-goto-homepage" bindtap="goToHomepage" style="margin-bottom:0;" wx:if="{{ isFromTemplateMsg }}">
+    <view class="ico-moon icon-rightarrow"></view>
+    返回首页
+  </view>
+  <view class="order-detail-section top-section">
+    <view style="margin-bottom: 18rpx;">订单状态: {{ orderStatus[orderInfo.status] }}</view>
+    <view>订单号: {{ orderInfo.order_id }}</view>
+  </view>
+  <view class="order-detail-section" style="border-top:1px solid #e8e8e8;">下单时间: {{ orderInfo.add_time }}</view>
+  <view class="order-detail-section" style="margin-bottom: 0; border-bottom: none; border-top:1px solid #e8e8e8;">
+    配送方式<text class="pull-right">{{ orderInfo.is_self_delivery == 1 ? '自提' : '快递' }}</text>
+  </view>
+  <view class="order-detail-section">
+    <view class="address-info-section">
+      <block wx:if="{{ orderInfo.is_self_delivery == 0 }}">
+        <view style="margin-bottom: 3px">{{ orderInfo.address_info.name }} {{ orderInfo.address_info.contact }}</view>
+        <view>{{ orderInfo.address_info.province.text + orderInfo.address_info.city.text + orderInfo.address_info.district.text + orderInfo.address_info.detailAddress }}</view>
+      </block>
+      <block wx:elif="{{ orderInfo.is_self_delivery == 1 }}">
+        <view bindtap="freightGoMap" class="location-name">
+          <label class="ico-moon icon-location freightAdress-ico"></label>{{freightAdress.region_string}} {{freightAdress.shop_location}}
+        </view>
+        <view class="freightAdress-phone" bindtap="freightPlayPhone"><label class="ico-moon icon-phone freightAdress-ico"></label>{{freightAdress.shop_contact}}</view>
+        <view class="freightAdress-tip">亲，勾选上门店自提,需要自己去门店取货哦！</view>
+      </block>
+    </view>
+  </view>
+  <view class="order-detail-section" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
+    <view class="goods-list-item" wx:for="{{ orderInfo.goods_info }}" wx:for-item="goods" wx:for-index="goodsIndex">
+      <image class="goods-cover" src="{{ goods.cover }}"></image>
+      <view class="goods-content">
+        <view>{{ goods.goods_name }}</view>
+        <view wx:if="{{ goods.model_value }}" class="goods-model">{{ goods.model_value }}</view>
+      </view>
+      <view class="goods-right">
+        <view>¥ {{ goods.price }}</view>
+        <view style="margin-top: 5px;">× {{ goods.num }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="order-detail-section" style="margin-bottom: 0;">商品金额
+    <text class="pull-right">¥ {{ orderInfo.original_price }}</text>
+  </view>
+  <view class="order-detail-section">优惠抵扣
+    <text class="pull-right">- ¥ {{ discount_cut_price }}</text>
+  </view>
+  <view class="order-detail-section" style="margin-bottom: 0; border-top:1px solid #e8e8e8;">运费
+    <text class="pull-right">¥ {{ express_fee }}</text>
+  </view>
+  <view class="order-detail-section">订单总价
+    <text class="pull-right">¥ {{ orderInfo.order_total_price }}</text>
+  </view>
+  <view class="order-detail-section" wx:if="{{ orderInfo.status != 0 }}" style="margin-bottom: 0; border-top:1px solid #e8e8e8;">储值抵扣
+    <text class="pull-right">- ¥ {{ useBalance }}</text>
+  </view>
+  <view class="order-detail-section">需付款
+    <text class="pull-right" style="color: #ff7100;">¥ {{ orderInfo.total_price }}</text>
+  </view>
+  <view class="order-detail-section" wx:if="{{ hasAdditionalInfo }}" bindtap="seeAdditionalInfo" style="border-top:1px solid #e8e8e8;">补充信息
+    <view class="ico-moon icon-rightarrow pull-right"></view>
+  </view>
+  <view class="order-detail-section" wx:if="{{ orderInfo.remark }}" style="border-top:1px solid #e8e8e8;">
+    <view class="section-title">留言</view>
+    <view class="section-content">{{ orderInfo.remark }}</view>
+  </view>
+
+  <view class="bottom-nav">
+    <view class="txt-r">
+      <block wx:if="{{ orderInfo.status == 0 }}">
+        <text class="btn" bindtap="cancelOrder">取消订单</text>
+        <text class="btn btn-orange orderDetail-pay-directly" bindtap="payOrder">立即支付</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 1 }}">
+        <!-- <text>{{ orderStatus[1] }}</text> -->
+        <text class="btn" bindtap="verificationCode">核销码</text>
+        <text class="btn" bindtap="applyDrawback">申请退款</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 2 }}">
+        <text class="btn" bindtap="verificationCode">核销码</text>
+        <text class="btn" bindtap="checkLogistics">查看物流</text>
+        <text class="btn" bindtap="applyDrawback">申请退款</text>
+        <text class="btn btn-orange" bindtap="sureReceipt">确认收货</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 3 }}">
+        <text class="btn" bindtap="orderDelete">刪除订单</text>
+        <text class="btn" bindtap="verificationCode">核销码</text>
+        <text class="btn" bindtap="checkLogistics">查看物流</text>
+        <text class="btn btn-orange" bindtap="makeComment">去评价</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 4 }}">
+        <text>退款审核中</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 5 }}">
+        <!-- <text>退款中</text> -->
+        <text class="btn" bindtap="receiveDrawback">收到退款</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 6 }}">
+        <!-- <text>已完成</text> -->
+        <text class="btn" bindtap="verificationCode">核销码</text>
+        <text class="btn" bindtap="checkLogistics">查看物流</text>
+        <text class="btn" bindtap="orderDelete">刪除订单</text>
+      </block>
+      <block wx:if="{{ orderInfo.status == 7 }}">
+        <!-- <text>已关闭</text> -->
+        <text class="btn" bindtap="orderDelete">刪除订单</text>
+      </block>
+    </view>
+  </view>
+</view>

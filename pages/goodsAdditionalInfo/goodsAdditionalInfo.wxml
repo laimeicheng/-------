@@ -1,0 +1,60 @@
+<view wx:if="{{ !from }}">
+  <view wx:for="{{ goods_info }}" wx:for-item="goods">
+    <view class="additional-info-section">
+      <view class="goods-detail">
+        <image class="goods-cover" mode="scaleToFill" src="{{ goods.cover }}"></image>
+        <view class="goods-info">
+          <view class="goods-title">{{ goods.title || goods.goods_name }}</view>
+          <view class="goods-model" wx:if="{{ goods.model_value_str }}">{{ goods.model_value_str }}</view>
+        </view>
+      </view>
+      <view class="goods-additional" wx:for="{{ additional_info_obj[goods.id || goods.goods_id] }}" wx:for-index="additionalIndex">
+        <view class="goods-additional-item" wx:if="{{ item.type == 'text' }}">
+          <text class="additional-name">{{ item.title }}</text><view class="additional-form-ele"><input type="text" bindinput="inputFormControl" data-goods-id="{{ goods.id }}" data-additional-index="{{ additionalIndex }}" value="{{ item.value }}"></input></view>
+        </view>
+        <view class="goods-additional-item" wx:if="{{ item.type == 'mul-text' }}">
+          <text class="additional-name">{{ item.title }}</text><view class="additional-form-ele"><textarea maxlength="-1" bindinput="inputFormControl" data-goods-id="{{ goods.id }}" data-additional-index="{{ additionalIndex }}" value="{{ item.value }}"></textarea></view>
+        </view>
+        <view class="goods-additional-item" wx:if="{{ item.type == 'picture' }}">
+          <text class="additional-name">{{ item.title }}</text>
+          <view class="additional-form-ele">
+            <view class="img-upload" bindtap="uploadImg" data-goods-id="{{ goods.id }}" data-additional-index="{{ additionalIndex }}">+</view>
+            <view class="image-item" wx:for="{{ item.value }}" wx:for-item="imgSrc" wx:for-index="imageIndex">
+              <image src="{{ imgSrc }}"></image><label class="delete-img-btn" bindtap="deleteImage" data-goods-id="{{ goods.id }}" data-additional-index="{{ additionalIndex }}" data-image-index="{{ imageIndex }}">-</label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button type="primary" bindtap="submitAdditionalInfo">提交</button>
+</view>
+<view wx:if="{{ from == 'goodsOrderDetail' }}" class="show-info-wrap">
+  <view wx:for="{{ goods_info }}" wx:for-item="goods">
+    <view class="additional-info-section">
+      <view class="goods-detail">
+        <image class="goods-cover" mode="scaleToFill" src="{{ goods.cover }}"></image>
+        <view class="goods-info">
+          <view class="goods-title">{{ goods.title || goods.goods_name }}</view>
+          <view class="goods-model" wx:if="{{ goods.model_value_str }}">{{ goods.model_value_str }}</view>
+        </view>
+      </view>
+      <view class="goods-additional" wx:for="{{ additional_info_obj[goods.id || goods.goods_id] }}" wx:for-index="additionalIndex">
+        <view class="goods-additional-item" wx:if="{{ item.type == 'text' }}">
+          <text class="additional-name">{{ item.title }}</text><view class="additional-form-ele">{{ item.value }}</view>
+        </view>
+        <view class="goods-additional-item" wx:if="{{ item.type == 'mul-text' }}">
+          <text class="additional-name">{{ item.title }}</text><view class="additional-form-ele">{{ item.value }}</view>
+        </view>
+        <view class="goods-additional-item" wx:if="{{ item.type == 'picture' }}">
+          <text class="additional-name">{{ item.title }}</text>
+          <view class="additional-form-ele">
+            <view class="image-item" wx:for="{{ item.value }}" wx:for-item="imgSrc" wx:for-index="imageIndex">
+              <image src="{{ imgSrc }}" bindtap="previewImage" data-image-index="{{ imageIndex }}" data-additional-index="{{ additionalIndex }}" data-goods-id="{{ goods.id || goods.goods_id }}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

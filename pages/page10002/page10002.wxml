@@ -1,0 +1,61 @@
+<view class="app">
+<template name="zcListVessel1">
+  <scroll-view class="element list-vessel-wrap scroll-ele"
+               data-id="{{data.customFeature_id}}"
+               data-type="list-vessel"
+               style="{{data.style}}"
+               data-param="{{data.param}}"
+               data-compid="list_vessel1"
+               scroll-y="true"
+               lower-threshold="10"
+               data-curpage="{{data.curpage}}"
+               bindscrolltolower="pageScrollFunc"
+  >
+    <view class="js-list-container" data-list-index="0">
+      <view class="list-vessel clearfix {{data.customFeature.mode == 1? 'double-list ': ''}}background-ele" wx:for="{{data.list_data}}"
+            style="{{data.list_style}}"
+            data-dataid="{{item.id || item.form_data.id[0].text}}"
+            data-router="{{data.customFeature.link}}"
+            catchtap="listVesselTurnToPage"><template name="zcPicture">
+  <block wx:if="{{real_value}}">
+    <block wx:if="{{real_value.join !== undefined}}">
+      <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{real_value}}" catchtap="{{data.eventHandler}}">
+        <image src="{{real_value[0]}}"></image>
+        <!-- <view class="wxParse">
+          <template is="wxParse" data="{{wxParseData: real_value}}"/>
+        </view> -->
+      </view>
+    </block>
+    <block wx:else>
+      <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{real_value}}" catchtap="{{data.eventHandler}}">
+        <image src="{{real_value}}"></image>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{data.content}}" catchtap="{{data.eventHandler}}">
+      <image src="{{data.content}}"></image>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <block wx:if="{{real_value}}">
+    <template is="zcPicture" data="{{data:data.content[0], real_value:real_value.form_data.DT, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{detail_data.DT && !vessel_page_data.form_data.DT}}">
+    <template is="zcPicture" data="{{data:data.content[0], real_value:detail_data.DT, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{vessel_page_data.form_data.DT}}">
+    <template is="zcPicture" data="{{data:data.content[0], real_value:vessel_page_data.form_data.DT, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:else>
+    <template is="zcPicture" data="{{data:data.content[0], real_value:item.form_data.DT, detail_data: detail_data}}"></template>
+  </block>
+</view></view>
+    </view>
+  </scroll-view>
+</template>
+<view class="ele-container">
+  <template is="zcListVessel1" data="{{data:list_vessel1, detail_data: detail_data}}"></template>
+</view>
+</view>

@@ -1,0 +1,111 @@
+<view class="extensionPage-wrap page" id="extensionPage">
+  <!--推广页主页-->
+  <view class="home-page" wx:if="{{ currentPage == 'home'}}">
+    <!--进入首页-->
+    <view class="goto-home-item" catchtap="jumpToHome">
+      <image class="app-logo" src="{{ appLogo }}"></image>
+      <text class="app-title">{{ appTitle }}</text>
+      <text class="tip">进入首页</text>
+      <view class="ico-moon icon-rightarrow"></view>
+    </view>
+    <!--主要推广-->
+    <view class="main-extension-item wifi" 
+          wx:if="{{ ( extensionItemData['wifi']['show'] == 1 ) && ( extensionItemData['wifi']['is_main'] == 1 ) }}">
+      <view class="wifi-setting">
+        <text class="setting-field">Wi-Fi名称:</text>
+        <text class="setting-text">{{ extensionItemData['wifi']['wifi_name'] }}</text>
+      </view>
+      <view class="wifi-setting">
+        <text class="setting-field">Wi-Fi密码:</text>
+        <text class="setting-text">{{ extensionItemData['wifi']['wifi_password'] }}</text>
+        <view class="copy-password" catchtap="copyWifiPassword">复制</view>
+      </view>
+    </view>
+    <view class="main-extension-item facetoface-pay" 
+          wx:elif="{{ ( extensionItemData['facetoface_pay']['show'] == 1 ) && ( extensionItemData['facetoface_pay']['is_main'] == 1 ) }}"
+          data-page-url="transferPage" catchtap="jumpToPage">
+          <view class="main-item-icon">
+            <view class="ico-moon icon-facetoface-pay"></view>
+          </view>
+          <text class="main-item-name">面对面付款</text>
+          <text class="main-item-tip">立即前往</text>
+          <view class="ico-moon icon-rightarrow"></view>
+    </view>
+    <view class="main-extension-item coupon" 
+          wx:elif="{{ ( extensionItemData['coupon']['show'] == 1 ) && ( extensionItemData['coupon']['is_main'] == 1 ) }}"
+          data-page-url="couponList" catchtap="jumpToPage">
+          <view class="main-item-icon">
+            <view class="ico-moon icon-coupon"></view>
+          </view>
+          <text class="main-item-name">优惠券</text>
+          <text class="main-item-tip">立即领取</text>
+          <view class="ico-moon icon-rightarrow"></view>
+    </view>
+    <view class="main-extension-item vip-card" 
+          wx:elif="{{ ( extensionItemData['vip_card']['show'] == 1 ) && ( extensionItemData['vip_card']['is_main'] == 1 ) }}"
+          data-page-url="vipCard" catchtap="jumpToPage">
+          <view class="main-item-icon">
+            <view class="ico-moon icon-vip-card"></view>
+          </view>
+          <text class="main-item-name">会员卡</text>
+          <text class="main-item-tip">成为会员</text>
+          <view class="ico-moon icon-rightarrow"></view>
+    </view>
+    <!--推广项-->
+    <view class="extension-item-list">
+        <view class="extension-item"
+              wx:if="{{ ( extensionItemData['wifi']['show'] == 1 ) && ( extensionItemData['wifi']['is_main'] == 0 ) }}"
+              catchtap="showWifiPage">
+          <view class="item-icon ico-moon icon-wifi"></view>
+          <text class="item-text">Wi-Fi</text>
+          <view class="ico-moon icon-rightarrow"></view>
+        </view>
+        <view class="extension-item"
+              wx:if="{{ ( extensionItemData['facetoface_pay']['show'] == 1 ) && ( extensionItemData['facetoface_pay']['is_main'] == 0 ) }}"
+              data-page-url="transferPage" catchtap="jumpToPage">
+          <view class="item-icon ico-moon icon-facetoface-pay"></view>
+          <text class="item-text">面对面付款</text>
+          <view class="ico-moon icon-rightarrow"></view>
+        </view>
+        <view class="extension-item" 
+              wx:if="{{ ( extensionItemData['coupon']['show'] == 1 ) && ( extensionItemData['coupon']['is_main'] == 0 ) }}"
+              data-page-url="couponList" catchtap="jumpToPage">
+          <view class="item-icon ico-moon icon-coupon"></view>
+          <text class="item-text">优惠券</text>
+          <view class="ico-moon icon-rightarrow"></view>
+        </view>
+        <view class="extension-item"
+              wx:if="{{ ( extensionItemData['vip_card']['show'] == 1 ) && ( extensionItemData['vip_card']['is_main'] == 0 ) }}"
+              data-page-url="vipCard" catchtap="jumpToPage">
+          <view class="item-icon ico-moon icon-vip-card"></view>
+          <text class="item-text">会员卡</text>
+          <view class="ico-moon icon-rightarrow"></view>
+        </view>
+    </view>
+    <!--广告图-->
+    <view class="advert-img-item" wx:if="{{ extensionItemData['advert_img']['show'] == 1 }}">
+      <swiper indicator-dots="{{ true }}" autoplay="{{ true }}" interval="{{ 5000 }}" duration="{{ 500 }}">
+        <block wx:for="{{ extensionItemData['advert_img']['img_list'] }}">
+          <swiper-item>
+            <image src="{{ item['url'] }}" class="slide-image" mode="widthFix" catchtap="jumpToPage" data-page-url="{{ item['link'] }}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!--推广页二级页面-->
+  <view class="second-page" wx:elif="{{ currentPage == 'wifi'}}">
+    <view class="main-extension-item wifi" 
+          wx:if="{{ extensionItemData['wifi']['show'] == 1 }}">
+      <view class="wifi-setting">
+        <text class="setting-field">Wi-Fi名称:</text>
+        <text class="setting-text">{{ extensionItemData['wifi']['wifi_name'] }}</text>
+      </view>
+      <view class="wifi-setting">
+        <text class="setting-field">Wi-Fi密码:</text>
+        <text class="setting-text">{{ extensionItemData['wifi']['wifi_password'] }}</text>
+        <view class="copy-password" catchtap="copyWifiPassword">复制</view>
+      </view>
+    </view>
+  </view>
+</view>

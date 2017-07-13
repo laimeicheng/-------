@@ -1,0 +1,73 @@
+<view class="comp-search">
+  <view class="ico-moon icon-location locate hide" bindtap="filterByLocation">全国</view>
+  <view class="search-wrap">
+    <icon size="14" type="search" />
+    <input id="search" value="{{inputContent}}" bindinput="bindChange" bindconfirm="searchList" focus="true" name="input" placeholder="请输入搜索关键词" confirm-type="search" />
+    <view class="cross {{inputContent == '' ? 'hide' : ''}}" bindtap="clearSearch">×</view>
+  </view>
+  <button class="cancel" bindtap="navigateBack">取消</button>
+</view>
+
+<view class="filter {{showResult?'':'hide'}}">
+  <view class="tab {{tab == 0 ? 'active' : ''}}" bindtap="sortByDefault">综合</view>
+  <view class="tab {{tab == 1 ? 'active' : ''}}" bindtap="sortBySales">销量</view>
+  <view class="tab {{tab == 2 ? 'active' : ''}} tab-price" data-direction="{{direction}}" bindtap="sortByPrice">价格
+    <text class="up {{direction === 0 ? 'sub-active': ''}}">▲</text>
+    <text class="down {{direction === 1 ? 'sub-active': ''}}">▼</text>
+  </view>
+  <view class="tab ico-moon icon-{{itemStyle == 1 ? 'list' : 'delicious'}}" data-type="{{itemStyle}}" bindtap="switchStyle"></view>
+  <view class="tab {{(currentCategory != '' || currentLocation != '') ? 'active' : ''}}" style="border-left:1px solid #f6f6f6;width:19%;" bindtap="filterList">筛选
+    <text class="ico-moon icon-filter"></text>
+  </view>
+</view>
+
+<scroll-view data-curpage="{{pageData.current_page}}" class="{{itemStyle == 1 ? 'container' : 'colume-2'}} {{showResult?'':'hide'}}" scroll-y="true" bindscrolltolower="getMoreItems" enable-back-to-top="true" lower-threshold="50">
+  <view class="item" catchtap="turnToDetail" wx:for="{{itemsList}}" wx:key="" data-id="{{item.form_data.id}}" data-goods-type="{{item.form_data.goods_type}}" data-contact="{{item.customFeature.ifUseContact}}">
+    <image class="item-pic" src="{{item.form_data.cover}}"></image>
+    <view class="item-detail">
+      <view class="item-title">{{item.form_data.title}}</view>
+      <view class="item-price">￥
+        <text>{{item.form_data.price}}</text>
+      </view>
+      <text class="item-sales">销量：{{item.form_data.sales}}</text>
+      <view class="ico-moon icon-shoppingcart item-buy" catchtap="addToCart" data-id="{{item.form_data.id}}"></view>
+    </view>
+  </view>
+  <view class="nomore {{pageData.is_more == 0 ? '' : 'hide'}}">没有啦！~</view>
+</scroll-view>
+
+<view class="history {{showResult?'hide':''}}">
+  <view class="title">
+    <text class="left">历史搜索</text>
+    <text class="right" bindtap="clearHistory">清除</text>
+  </view>
+  <view class="content">
+    <view class="history-item" wx:for="{{history}}" wx:key="" data-tag="{{item}}" bindtap="quickSearch">{{item}}</view>
+  </view>
+</view>
+
+<view class="side-page" animation="{{animationData}}">
+  <scroll-view class="filter-wrap" scroll-y="true">
+    <view class="filter-cate">
+      <view class="filter-title">分类</view>
+      <view class="cate filter-item {{currentCategory == item.id ? 'active' : ''}}" wx:for="{{cateData}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-idx="category" catchtap="setCategoryFilter">{{item.name}}</view>
+    </view>
+    <view class="filter-location">
+      <view class="filter-title">当前位置</view>
+      <view class="ico-moon icon-location filter-item">{{currentLocation||'全国'}}</view>
+      <button class="ico-moon icon-edit location filter-item hide" catchtap="getCurrentLocation">定位</button>
+    </view>
+    <view class="filter-location" wx:for="{{locationList}}" wx:for-item="province" wx:key="">
+      <view class="filter-title hide">{{province.name}}</view>
+      <view class="" wx:for="{{province.cities}}" wx:for-item="city" wx:key="">
+        <view class="city filter-title">{{city.name}}</view>
+        <view class="town filter-item {{currentLocation == town.name ? 'active' : ''}}" wx:for="{{city.towns}}" wx:for-item="town" wx:key="" data-id="{{town.region_id}}" data-name="{{town.name}}" catchtap="setLocationFilter">{{town.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="button-wrap">
+    <view class="cancel-btn" catchtap="hideFilter">取消</view>
+    <view class="confirm-btn" catchtap="confirmFilter">确定</view>
+  </view>
+</view>
+<view class="mask {{filter ? '' : 'hide'}}" catchtap="hideFilter"></view>

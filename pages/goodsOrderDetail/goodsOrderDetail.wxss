@@ -1,0 +1,120 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 31rpx;
+  padding-bottom: 60px;
+}
+.page-top-nav {
+  position: static;
+  margin: 0;
+}
+.order-detail-section {
+  margin-bottom: 18rpx;
+  padding: 26rpx 30rpx;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+.orderDetail-goto-homepage .icon-rightarrow {
+  position: absolute;
+  display: block;
+  right: 20rpx;
+  font-size: 36rpx;
+}
+.top-section {
+  font-size: 36rpx;
+  color: #fff;
+  background-color: #535961;
+}
+.address-info-section {
+  /*line-height: 44rpx;*/
+  padding-top:26rpx;
+  margin-top:-26rpx;
+  border-top: 1px solid #f2f2f2;
+}
+.orderDetail-pay-count {
+  color: #d20e10;
+}
+.bottom-nav {
+  padding: 20rpx 0;
+  border-top: 1px solid #f2f2f2;
+  color: #333;
+  background-color: #fff;
+}
+.bottom-nav text {
+  display: inline-block;
+  margin-right: 10px;
+}
+.goods-cover, .goods-content, .goods-right {
+  display: inline-block;
+  vertical-align: top;
+}
+.goods-list-item {
+  margin: 0 -30rpx;
+  padding: 12rpx 30rpx;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #f2f2f2;
+}
+.goods-list-item:first-child {
+  margin-top: -10rpx;
+}
+.goods-list-item:last-child {
+  border-bottom: none;
+}
+.goods-cover {
+  width: 132rpx;
+  height: 132rpx;
+}
+.goods-content {
+  margin-left: 20rpx;
+  width: 398rpx;
+}
+.goods-model {
+  margin-top: 5px;
+  color: #aaa;
+}
+.goods-right {
+  width: 140rpx;
+  text-align: right;
+}
+.freightAdress-tip {
+  margin-top: 10px;
+  margin-left: 6px;
+  font-size: 12px;
+  color: #999;
+}
+.freightAdress-ico {
+  font-size:16px;
+  margin:0 5px;
+}
+.freightAdress-phone {
+  margin-top: 10px;
+}
+.location-name {
+  text-decoration: underline;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 90%;
+  overflow: hidden;
+}
+.btn {
+  padding: 18rpx 33rpx;
+  font-size: 31rpx;
+  line-height: 1;
+  border-radius: 2px;
+}
+.btn.btn-orange {
+  color: #ff7100;
+  background-color: #fff;
+}
+.section-title, .section-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+.section-title {
+  width: 5em;
+}
+.section-content {
+  margin-left: 2em;
+  width: calc(100% - 7em);
+  text-align: right;
+}

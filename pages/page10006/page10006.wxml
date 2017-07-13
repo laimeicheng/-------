@@ -1,0 +1,209 @@
+<view class="app">
+<template name="zcPicture">
+  <block wx:if="{{real_value}}">
+    <block wx:if="{{real_value.join !== undefined}}">
+      <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{real_value}}" catchtap="{{data.eventHandler}}">
+        <image src="{{real_value[0]}}"></image>
+        <!-- <view class="wxParse">
+          <template is="wxParse" data="{{wxParseData: real_value}}"/>
+        </view> -->
+      </view>
+    </block>
+    <block wx:else>
+      <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{real_value}}" catchtap="{{data.eventHandler}}">
+        <image src="{{real_value}}"></image>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="element picture" style="{{data.style}}" data-event-params="{{data.eventParams}}" data-imgArr="{{data.content}}" catchtap="{{data.eventHandler}}">
+      <image src="{{data.content}}"></image>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <block wx:if="{{real_value}}">
+    <template is="zcPicture" data="{{data:picture1, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{detail_data && !vessel_page_data.form_data}}">
+    <template is="zcPicture" data="{{data:picture1, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{vessel_page_data.form_data}}">
+    <template is="zcPicture" data="{{data:picture1, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:else>
+    <template is="zcPicture" data="{{data:picture1, detail_data: detail_data}}"></template>
+  </block>
+</view><view class="ele-container">
+  <block wx:if="{{real_value}}">
+    <template is="zcPicture" data="{{data:picture2, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{detail_data && !vessel_page_data.form_data}}">
+    <template is="zcPicture" data="{{data:picture2, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:elif="{{vessel_page_data.form_data}}">
+    <template is="zcPicture" data="{{data:picture2, detail_data: detail_data}}"></template>
+  </block>
+  <block wx:else>
+    <template is="zcPicture" data="{{data:picture2, detail_data: detail_data}}"></template>
+  </block>
+</view><template name="zcFormVessel3">
+  <form class="element form-vessel" data-form="{{data.form}}" style="{{data.style}}"
+        bindsubmit="submitForm"
+        data-compid="form_vessel3"
+        data-fieldinfo="{{data.field_info}}">
+    <template name="zcInputEle">
+  <block wx:if="{{data.segment_required}}">
+    <view class="element input-ele js-form-ele must" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="element input-ele js-form-ele" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <template is="zcInputEle" data="{{data:data.content[0]}}"></template>
+</view>
+<template name="zcInputEle">
+  <block wx:if="{{data.segment_required}}">
+    <view class="element input-ele js-form-ele must" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="element input-ele js-form-ele" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <template is="zcInputEle" data="{{data:data.content[1]}}"></template>
+</view>
+<template name="zcInputEle">
+  <block wx:if="{{data.segment_required}}">
+    <view class="element input-ele js-form-ele must" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="element input-ele js-form-ele" style="{{data.style}}">
+      <input type="text" placeholder="{{!!data.customFeature.placeholder? data.customFeature.placeholder: ''}}"
+             data-segment="{{data.customFeature.segment}}"
+             data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+             bindchange="inputChange"/>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <template is="zcInputEle" data="{{data:data.content[2]}}"></template>
+</view>
+<template name="zcSelectEle">
+  <block wx:if="{{data.segment_required}}">
+    <view class="element select-ele js-form-ele must" style="{{data.style}}">
+      <view class="select-container">
+        <label class="title-container" style='{{data.titleStyle}}'><text class="title">{{data.content.title}}</text></label>
+        <checkbox-group class="checkbox-group" wx:if="{{data.customFeature.selectAmount > 1}}" bindchange="bindSelectChange"
+                        data-segment="{{data.customFeature.segment}}"
+                        data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}">
+          <view class="select-item" wx:for="{{data.content.lists}}">
+            <label class="select-content checkbox"><label class="select-text">{{item}}</label>
+              <checkbox class="select-input" value="{{item}}"/>
+            </label>
+          </view>
+        </checkbox-group>
+        <radio-group class="radio-group" bindchange="bindSelectChange" wx:else
+                     data-segment="{{data.customFeature.segment}}"
+                     data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}">
+          <view class="select-item" wx:for="{{data.content.lists}}">
+            <label class="select-content checkbox"><label class="select-text">{{item}}</label>
+              <radio class="select-input" value="{{item}}"/>
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="element select-ele js-form-ele" style="{{data.style}}">
+      <view class="select-container">
+        <label class="title-container" style='{{data.titleStyle}}'><text class="title">{{data.content.title}}</text></label>
+        <checkbox-group class="checkbox-group" wx:if="{{data.customFeature.selectAmount > 1}}" bindchange="bindSelectChange"
+                        data-segment="{{data.customFeature.segment}}"
+                        data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}">
+          <view class="select-item" wx:for="{{data.content.lists}}">
+            <label class="select-content checkbox"><label class="select-text">{{item}}</label>
+              <checkbox class="select-input" value="{{item}}"/>
+            </label>
+          </view>
+        </checkbox-group>
+        <radio-group class="radio-group" bindchange="bindSelectChange" wx:else
+                     data-segment="{{data.customFeature.segment}}"
+                     data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}">
+          <view class="select-item" wx:for="{{data.content.lists}}">
+            <label class="select-content checkbox"><label class="select-text">{{item}}</label>
+              <radio class="select-input" value="{{item}}"/>
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <template is="zcSelectEle" data="{{data:data.content[3]}}"></template>
+</view>
+<template name="zcTextareaEle">
+  <block wx:if="{{data.segment_required}}">
+    <view class="element textarea-ele js-form-ele must" style="{{data.style}}">
+      <textarea placeholder="{{!!data.customFeature.placeholder ? data.customFeature.placeholder: ''}}"
+              data-segment="{{data.customFeature.segment}}"
+              data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+              bindinput="inputChange"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="element textarea-ele js-form-ele" style="{{data.style}}">
+      <textarea placeholder="{{!!data.customFeature.placeholder ? data.customFeature.placeholder: ''}}"
+              data-segment="{{data.customFeature.segment}}"
+              data-datakey="{{data.formCompid}}.form_data.{{data.customFeature.segment}}"
+              bindinput="inputChange"/>
+    </view>
+  </block>
+</template>
+<view class="ele-container">
+  <template is="zcTextareaEle" data="{{data:data.content[4], detail_data: detail_data}}"></template>
+</view>
+<template name="zcFormButton">
+  <button class="button background-ele" style="{{data.style}}" form-type="submit">
+    {{data.content}}
+  </button>
+</template>
+<view class="ele-container">
+  <template is="zcFormButton" data="{{data:data.content[5]}}"></template>
+</view>
+
+  </form>
+</template>
+<view class="ele-container">
+  <template is="zcFormVessel3" data="{{data:form_vessel3}}"></template>
+</view>
+
+</view>

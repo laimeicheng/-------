@@ -1,0 +1,322 @@
+page {
+  height: 100%;
+  background: #efeff5;
+}
+/*主页*/
+.goto-home-item {
+  position: relative;
+  height: 120rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  background: #fff;
+}
+.goto-home-item .app-logo {
+  position: absolute;
+  top: 18rpx;
+  left: 32rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1rpx solid #efeff5;
+}
+.goto-home-item .app-title {
+  position: absolute;
+  top: 20rpx;
+  left: 138rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.goto-home-item .tip {
+  position: absolute;
+  top: 20rpx;
+  right: 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.goto-home-item .icon-rightarrow {
+  position: absolute;
+  top: 20rpx;
+  right: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.wifi {
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.main-extension-item.wifi .wifi-setting {
+  position: relative;
+  height: 100rpx;
+  margin: 0 20rpx;
+  border-bottom: 1rpx solid #dedfe0;
+}
+.main-extension-item.wifi .wifi-setting:last-child {
+  border-bottom: 0;
+}
+.main-extension-item.wifi .setting-field {
+  display: inline-block;
+  margin-top: 20rpx;
+  margin-left: 32rpx;
+  margin-right: 16rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: top;
+  color: #656667;
+}
+.main-extension-item.wifi .setting-text {
+  display: inline-block;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: top;
+}
+.main-extension-item.wifi .copy-password {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #51b531;
+}
+.main-extension-item.facetoface-pay {
+  position: relative;
+  height: 150rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.main-extension-item.facetoface-pay .main-item-icon {
+  position: absolute;
+  top: 20rpx;
+  left: 25rpx;
+  width: 110rpx;
+  height: 110rpx;
+  background: #55b637;
+  text-align: center;
+}
+.main-extension-item.facetoface-pay .main-item-icon::after {
+  content: '';
+  position: absolute;
+  right: -25rpx;
+  height: 110rpx;
+  border-right: 1rpx dashed #dedfe0;
+}
+.main-extension-item.facetoface-pay .main-item-icon .ico-moon {
+  display: inline-block;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: #fff;
+  font-size: 28px;
+}
+.main-extension-item.facetoface-pay .main-item-name {
+  position: absolute;
+  top: 35rpx;
+  left: 190rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+}
+.main-extension-item.facetoface-pay .main-item-tip {
+  position: absolute;
+  top: 35rpx;
+  right: 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.facetoface-pay .icon-rightarrow {
+  position: absolute;
+  top: 35rpx;
+  right: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.coupon {
+  position: relative;
+  height: 150rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.main-extension-item.coupon::before {
+  content: '';
+  position: absolute;
+  top: -12rpx;
+  left: 146rpx;
+  border: 12rpx solid #efeff5;
+  border-radius: 50%;
+}
+.main-extension-item.coupon::after {
+  content: '';
+  position: absolute;
+  bottom: -12rpx;
+  left: 146rpx;
+  border: 12rpx solid #efeff5;
+  border-radius: 50%;
+}
+.main-extension-item.coupon .main-item-icon {
+  position: absolute;
+  top: 20rpx;
+  left: 25rpx;
+  width: 110rpx;
+  height: 110rpx;
+  background: #e56b67;
+  text-align: center;
+}
+.main-extension-item.coupon .main-item-icon::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -25rpx;
+  height: 116rpx;
+  border-right: 1rpx dashed #dedfe0;
+}
+.main-extension-item.coupon .main-item-icon .ico-moon {
+  display: inline-block;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: #fff;
+  font-size: 28px;
+}
+.main-extension-item.coupon .main-item-name {
+  position: absolute;
+  top: 35rpx;
+  left: 190rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+}
+.main-extension-item.coupon .main-item-tip {
+  position: absolute;
+  top: 35rpx;
+  right: 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.coupon .icon-rightarrow {
+  position: absolute;
+  top: 35rpx;
+  right: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.vip-card {
+  position: relative;
+  height: 150rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.main-extension-item.vip-card .main-item-icon {
+  position: absolute;
+  top: 20rpx;
+  left: 25rpx;
+  width: 110rpx;
+  height: 110rpx;
+  background: #5db2ea;
+  text-align: center;
+}
+.main-extension-item.vip-card .main-item-icon::after {
+  content: '';
+  position: absolute;
+  right: -25rpx;
+  height: 110rpx;
+  border-right: 1px dashed #dedfe0;
+}
+.main-extension-item.vip-card .main-item-icon .ico-moon {
+  display: inline-block;
+  height: 110rpx;
+  line-height: 110rpx;
+  color: #fff;
+  font-size: 28px;
+}
+.main-extension-item.vip-card .main-item-name {
+  position: absolute;
+  top: 35rpx;
+  left: 190rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 20px;
+}
+.main-extension-item.vip-card .main-item-tip {
+  position: absolute;
+  top: 35rpx;
+  right: 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.main-extension-item.vip-card .icon-rightarrow {
+  position: absolute;
+  top: 35rpx;
+  right: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.extension-item-list {
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+.extension-item {
+  position: relative;
+  height: 100rpx;
+  border-bottom: 1rpx solid #dedfe0;
+  margin: 0 20rpx;
+}
+.extension-item:last-child {
+  border-bottom: 0;
+}
+.extension-item .item-icon {
+  position: absolute;
+  top: 20rpx;
+  left: 18rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 20px;
+}
+.extension-item .item-icon.icon-wifi {
+  color: #f6c142;
+}
+.extension-item .item-icon.icon-facetoface-pay {
+  color: #55b637;
+}
+.extension-item .item-icon.icon-coupon {
+  color: #e56b67;
+}
+.extension-item .item-icon.icon-vip-card {
+  color: #5db2ea;
+}
+.extension-item .item-text {
+  position: absolute;
+  top: 20rpx;
+  left: 85rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.extension-item .icon-rightarrow {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #666;
+}
+.advert-img-item {
+  border-top: 1px solid #dedfe0;
+  border-bottom: 1px solid #dedfe0;
+  background: #fff;
+}
+.advert-img-item swiper {
+  height: 195rpx;
+}
+.advert-img-item .slide-image {
+  width: 100%;
+}
+/* 二级页面 */
+.second-page .main-extension-item.wifi {
+  margin-top: 30rpx;
+}

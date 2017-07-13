@@ -1,0 +1,12 @@
+<view>
+  <view><image mode="widthFix" src="http://img.weiye.me/zcimgdir/album/file_5940abcba6241.jpg"></image></view>
+  <view class="paySuccess-tip">支付成功</view>
+  <view>
+    <view class="btn-container">
+      <button class="back-to-homepage" bindtap="goToHomepage">返回首页</button>
+    </view>
+    <view class="btn-container">
+      <button class="check-order" bindtap="goToOrderDetail">查看订单</button>
+    </view>
+  </view>
+</view>

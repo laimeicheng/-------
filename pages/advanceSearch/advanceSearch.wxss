@@ -1,0 +1,399 @@
+/* pages/advanceSearch/advanceSearch.wxss */
+
+page {
+  height: 100%;
+}
+
+.mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+
+.filter-item {
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  background: #f6f6f6;
+  padding: 0 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  width: 53px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.filter-title {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.filter-cate {
+  margin-bottom: 20px;
+}
+
+.filter-location {
+  margin-bottom: 10px;
+}
+
+.filter-location .location {
+  background: #fff;
+  color: #999;
+}
+
+.filter-location .active, .filter-cate .active {
+  background: #f95d5d;
+  color: #fff !important;
+}
+
+.side-page {
+  width: 540rpx;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  right: -540rpx;
+  top: 0;
+  z-index: 10;
+}
+
+.side-page .filter-wrap {
+  height: calc(100% - 60px);
+  width: calc(100% - 20px);
+  padding: 10px;
+}
+
+.side-page .button-wrap {
+  height: 40px;
+}
+
+.side-page .button-wrap view {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+  width: 50%;
+}
+
+.cancel-btn {
+  background: #f6f6f6;
+  color: #999;
+}
+
+.confirm-btn {
+  background: #f95d5d;
+  color: #fff;
+}
+
+.active {
+  color: #f95d5d !important;
+}
+
+.active .sub-active {
+  color: #f95d5d !important;
+}
+
+.locate {
+  float: left;
+  width: 22%;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.comp-search {
+  width: 96%;
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 2%;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.search-wrap {
+  height: 50rpx;
+  width: 78%;
+  background: #efeff4;
+  border-radius: 30px;
+  position: relative;
+  vertical-align: middle;
+  float: left;
+  margin-top: 15rpx;
+}
+
+.search-wrap input {
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 10rpx;
+  font-size: 14px;
+}
+
+.search-wrap icon {
+  margin-left: 20rpx;
+  height: 100%;
+  vertical-align: middle;
+  float: left;
+}
+
+.cancel {
+  padding: 0;
+  height: 50rpx;
+  width: 14%;
+  line-height: 50rpx;
+  margin-top: 15rpx;
+  font-size: 14px;
+}
+
+.cross {
+  height: 30rpx;
+  background: #dcdcdc;
+  color: #fff;
+  line-height: 30rpx;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  width: 30rpx;
+  top: 12.5rpx;
+  right: 10rpx;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 9;
+}
+
+.filter {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #f6f6f6;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tab {
+  width: 20%;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+}
+
+.tab-price {
+  position: relative;
+}
+
+.tab-price .up, .tab-price .down {
+  color: #dcdcdc;
+  position: absolute;
+  right: 5rpx;
+  height: 10px;
+  overflow: hidden;
+  line-height: 10px;
+  transform: scaleY(0.6);
+  text-align: center;
+}
+
+.tab-price .up {
+  top: 20rpx;
+}
+
+.tab-price .down {
+  bottom: 20rpx;
+}
+
+/*样式1*/
+
+.container {
+  height: calc(100% - 164rpx);
+}
+
+.container .item {
+  height: 130px;
+  overflow: hidden;
+}
+
+.container .item-pic {
+  height: 124px;
+  width: 124px;
+  float: left;
+  padding: 3px;
+}
+
+.container .item-detail {
+  position: relative;
+  float: left;
+  width: calc(100% - 140px);
+  height: 129px;
+  margin-left: 10px;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.container .item-title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  min-height: 37px;
+  line-height: 20px;
+}
+
+.container .item-price {
+  display: inline-block;
+  font-size: 14px;
+  color: #f95d5d;
+  margin-right: 15px;
+}
+
+.container .item-price text {
+  font-size: 18px;
+}
+
+.container .item-buy {
+  height: 30px;
+  width: 30px;
+  color: #f95d5d;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.container .item-sales {
+  color: #999;
+  font-size: 14px;
+}
+
+/*样式1*/
+
+.colume-2 {
+  height: calc(100% - 164rpx);
+  background: #f6f6f6;
+}
+
+.colume-2 .item {
+  height: 570rpx;
+  overflow: hidden;
+  width: 49%;
+  float: left;
+  background: #fff;
+  margin-bottom: 2%;
+}
+
+.colume-2 .item:nth-child(odd) {
+  margin-right: 2%;
+}
+
+.colume-2 .item-pic {
+  height: 360rpx;
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.colume-2 .item-detail {
+  position: relative;
+  float: left;
+  width: calc(100% - 20rpx);
+  height: 210rpx;
+  padding: 0 10rpx;
+}
+
+.colume-2 .item-title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15rpx;
+  margin-top: 10rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  min-height: 80rpx;
+}
+
+.colume-2 .item-price {
+  font-size: 14px;
+  color: #f95d5d;
+  margin-right: 15rpx;
+}
+
+.colume-2 .item-price text {
+  font-size: 18px;
+}
+
+.colume-2 .item-buy {
+  height: 30px;
+  width: 30px;
+  color: #f95d5d;
+  position: absolute;
+  right: 0;
+  bottom: 10rpx;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.colume-2 .item-sales {
+  color: #999;
+  font-size: 14px;
+}
+
+/*历史记录样式*/
+
+.nomore {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #dcdcdc;
+  font-size: 16px;
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+  padding: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+  color: #f95d5d;
+  font-size: 12px;
+}
+
+.content {
+  padding: 0 10px;
+}
+
+.history-item {
+  height: 20px;
+  display: inline-block;
+  background: #f6f6f6;
+  color: #333;
+  border-radius: 3px;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  padding: 0 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

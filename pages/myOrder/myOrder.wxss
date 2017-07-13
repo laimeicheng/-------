@@ -1,0 +1,205 @@
+page {
+  height: 100%;
+  background-color: #eee;
+  font-size: 29rpx;
+}
+.dialog-block-item {
+  padding: 8px 0;
+}
+.myOrder-wrap {
+  height: 100%;
+}
+.myOrder-content-body {
+  height:calc(100% - 105rpx);
+  margin-top: 105rpx;
+}
+.myOrder-content-container {
+  height: 100%;
+}
+.myOrder-tab-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  line-height: 85rpx;
+  height: 88rpx;
+  font-size: 33rpx;
+  background: #fff;
+  text-align: center;
+}
+.myOrder-tab-list view {
+  border-bottom: 1px solid transparent;
+}
+.myOrder-tab-list view.active {
+/*  color: #d20e10;
+  border-color: #d20e10;*/
+  color: #ff7100;
+  border-color: #ff7100;
+}
+.myOrder-list-wrap {
+  padding: 0 23rpx;
+  margin-bottom: 19rpx;
+  background-color: #fff;
+}
+.myOrder-tostore .myOrder-list-wrap {
+  font-size: 13px;
+  margin-bottom: 23rpx;
+}
+.tostore-see-detail {
+  color: #aaa;
+}
+.myOrder-goods-cover {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+}
+.myOrder-tostore .myOrder-goods-cover {
+  width: 90px;
+  height: 61px;
+}
+.myOrder-goods-cover.transfer-order-cover {
+  border-radius: 50%;
+  background-color: #09ba07;
+  line-height: 50px;
+  font-size: 34px;
+  text-align: center;
+  color: #fff;
+}
+.myOrder-goods-title {
+  padding: 0 70px 0 60px;
+  height: 50px;
+  word-break: break-all;
+  overflow: hidden;
+}
+.myOrder-transfer .myOrder-goods-title {
+  padding-top: 15px;
+  height: 35px;
+}
+.tostore-goods-detail {
+  padding: 12px 0 0 103px;
+  height: 61px;
+  box-sizing:border-box;
+}
+.myOrder-tostore-title {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.myOrder-goods-right {
+  position: absolute;
+  top: 0.625rem;
+  right: 0;
+  max-width: 4.5625rem;
+  line-height: 1.25rem;
+  text-align: right;
+}
+.myOrder-transfer .myOrder-goods-right {
+  top: 1.35rem;
+}
+.myOrder-goods-count {
+  margin-left: 10rpx;
+}
+.myOrder-total-item {
+  text-align: right;
+}
+.myOrder-list-bottom {
+  text-align: right;
+  line-height: 64rpx;
+  padding: 16rpx 0;
+}
+.myOrder-transfer .myOrder-list-bottom {
+  padding: 22rpx 0;
+}
+.myOrder-list-count {
+  margin-right: 10px;
+}
+.myOrder-pay-price, .myOrder-order-status, .tostore-order-queuenum {
+  color: #ff7100;
+}
+.myOrder-list-bottom .btn {
+  font-size: 29rpx;
+  padding: 0.1875rem 0.5rem;
+  margin-right: 0.625rem;
+  border-radius: 1px;
+  color: #444;
+}
+.myOrder-list-bottom .btn:last-child {
+  margin-right:0;
+}
+.btn.btn-orange {
+  color: #ff7100;
+  background-color: #fff;
+}
+.noMoreNewDataTip {
+  text-align: center;
+  color: #aaa;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.scrollContainer {
+  height: 100%;
+}
+.myOrder-franchisee-name {
+  padding: 5px 0;
+  color: #aaa;
+}
+.tostore-order-status {
+  margin-left: 15px;
+}
+.tostore-order-waittime {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+  color: #616161;
+}
+
+.myOrder-ebusiness .myOrder-list-wrap,
+.myOrder-appointment .myOrder-list-wrap {
+  padding: 0 29rpx;
+}
+.myOrder-ebusiness .dialog-block-item,
+.myOrder-appointment .dialog-block-item {
+  padding: 29rpx 0;
+  border-bottom: none;
+}
+.myOrder-ebusiness .myOrder-goods-list,
+.myOrder-appointment .myOrder-goods-list {
+  padding: 0 25rpx;
+  margin: 0 -25rpx;
+  background-color: #f8f8f8;
+}
+.myOrder-ebusiness .myOrder-goods-list .dialog-block-item,
+.myOrder-appointment .myOrder-goods-list .dialog-block-item {
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.myOrder-ebusiness .myOrder-goods-list .dialog-block-item:last-child,
+.myOrder-appointment .myOrder-goods-list .dialog-block-item:last-child {
+  border-bottom: none;
+}
+.myOrder-ebusiness .myOrder-goods-right,
+.myOrder-appointment .myOrder-goods-right {
+  top: 12rpx;
+  max-width: 115rpx;
+  line-height: 1.5;
+}
+.myOrder-ebusiness .myOrder-list-bottom,
+.myOrder-appointment .myOrder-list-bottom {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1px solid #f2f2f2;
+}
+.myOrder-ebusiness .myOrder-goods-cover,
+.myOrder-appointment .myOrder-goods-cover {
+  width: 120rpx;
+  height: 120rpx;
+}
+.myOrder-ebusiness .myOrder-goods-title,
+.myOrder-appointment .myOrder-goods-title {
+  height: 120rpx;
+  padding: 0 120rpx 0 145rpx;
+}
